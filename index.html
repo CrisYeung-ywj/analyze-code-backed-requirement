@@ -344,6 +344,30 @@
       margin-top: 28px;
     }
 
+    .build-flow {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .build-prompt {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--teal);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--surface);
+      padding: 18px 20px;
+    }
+
+    .build-prompt strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .build-prompt p {
+      margin: 0;
+      color: #43505c;
+    }
+
     .flow-card {
       position: relative;
       min-height: 174px;
@@ -507,6 +531,7 @@
 
     @media (max-width: 1100px) {
       .flow,
+      .build-flow,
       .output-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -552,6 +577,7 @@
       }
 
       .flow,
+      .build-flow,
       .output-grid,
       .metric-row,
       .resource-grid {
@@ -576,6 +602,7 @@
         <span>需求分析培训</span>
       </a>
       <nav class="nav" aria-label="页面导航">
+        <a href="#build">搭建 SKILL</a>
         <a href="#architecture">核心架构</a>
         <a href="#output">产出模板</a>
         <a href="#case">案例复盘</a>
@@ -594,7 +621,7 @@
           <p class="lead">核心不是让 AI 快速写一份报告，而是把产品经理的判断过程结构化：业务事实要清楚，系统代码要验证，缺口和风险要暴露，最后才形成可决策的一期边界。</p>
           <div class="hero-actions">
             <a class="btn primary" href="#architecture">进入方法论</a>
-            <a class="btn" href="https://linsy-ai-data.linshimuye.com/prod/upload/ai/html-share/15790_%E5%B8%AE%E6%88%91%E5%AE%8C%E6%88%90%E6%9C%AC%E6%AC%A1%E9%9C%80%E6%B1%82%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-a4d41163-1b9c-4ad0-ad35-77d285176524.html" target="_blank" rel="noopener">打开小龙虾案例</a>
+            <a class="btn" href="https://linsy-ai-data.linshimuye.com/prod/upload/ai/html-share/15790_%E7%9B%AE%E6%A0%87%EF%BC%9A%E8%BE%93%E5%87%BA%E6%9C%AC%E9%9C%80%E6%B1%82%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%86%85%E5%AE%B9%EF%BC%8C%E5%8C%85%E6%8B%AC%EF%BC%9A%E9%9C%80%E6%B1%82%E8%83%8C%E6%99%AF%E3%80%81%E9%9C%80%E6%B1%82%E7%9B%AE%E6%A0%87%E3%80%81%E9%9C%80-2da5efce-670b-4277-beaa-3d07b5924386.html" target="_blank" rel="noopener">打开 Skill 搭建案例</a>
           </div>
           <div class="metric-row" aria-label="核心数字">
             <div class="metric"><strong>2</strong><span>必要输入</span></div>
@@ -620,11 +647,59 @@
       </div>
     </section>
 
+    <section class="band alt" id="build">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Build the Skill</p>
+            <h2>先跑通案例，再让 AI 把方法打包成 SKILL</h2>
+          </div>
+          <p class="callout">不要从空白文档硬写 SKILL。先与林氏小龙虾完成一次真实需求分析，保留过程中被纠正的判断和约束，再让 AI 反向沉淀成可复用安装包。</p>
+        </div>
+
+        <div class="flow build-flow" aria-label="需求分析技能搭建流程">
+          <article class="flow-card">
+            <div class="step-no">1</div>
+            <h3>跑通代表性案例</h3>
+            <p>提供业务材料、代码来源和目标产物，与 AI 协作到结果可评审。</p>
+            <ul><li>记录有效步骤</li><li>保留纠错与边界</li></ul>
+          </article>
+          <article class="flow-card">
+            <div class="step-no">2</div>
+            <h3>用文字要求打包</h3>
+            <p>让 AI 将刚才的方法抽象为通用需求分析 SKILL，并输出 ZIP。</p>
+            <ul><li>主文件 SKILL.md</li><li>references 参考模板</li></ul>
+          </article>
+          <article class="flow-card">
+            <div class="step-no">3</div>
+            <h3>检查可复用性</h3>
+            <p>确认触发条件、输入依赖、执行步骤、停机条件和输出模板齐全。</p>
+            <ul><li>可安装</li><li>可触发</li><li>可交付</li></ul>
+          </article>
+          <article class="flow-card">
+            <div class="step-no">4</div>
+            <h3>补充特殊约束</h3>
+            <p>用自然语言继续修改：无业务输入先问；仓库不明先搜索并确认；代码不可访问就停止。</p>
+            <ul><li>重新生成 ZIP</li><li>再用新案例验证</li></ul>
+          </article>
+        </div>
+
+        <div class="build-prompt">
+          <strong>可直接复制的打包指令</strong>
+          <p>“请把刚才完成需求分析的方法打包为一个通用需求分析 SKILL，输出可安装的 ZIP，至少包含 SKILL.md 和必要的 references。保留输入检查、代码证据、澄清问题、一期边界与验收标准，并写清触发条件和无法继续时的停机规则。”</p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="https://linsy-ai-data.linshimuye.com/prod/upload/ai/html-share/15790_%E7%9B%AE%E6%A0%87%EF%BC%9A%E8%BE%93%E5%87%BA%E6%9C%AC%E9%9C%80%E6%B1%82%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%86%85%E5%AE%B9%EF%BC%8C%E5%8C%85%E6%8B%AC%EF%BC%9A%E9%9C%80%E6%B1%82%E8%83%8C%E6%99%AF%E3%80%81%E9%9C%80%E6%B1%82%E7%9B%AE%E6%A0%87%E3%80%81%E9%9C%80-2da5efce-670b-4277-beaa-3d07b5924386.html" target="_blank" rel="noopener">查看林氏小龙虾完整搭建案例</a>
+        </div>
+      </div>
+    </section>
+
     <section class="band" id="architecture">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow">01 / Core Architecture</p>
+            <p class="eyebrow">02 / Core Architecture</p>
             <h2>SKILL 的核心架构</h2>
           </div>
           <p class="callout">一句话：先锁定业务事实，再穿透系统证据，最后把判断变成可执行的产品决策。</p>
@@ -705,7 +780,7 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow">02 / Report Structure</p>
+            <p class="eyebrow">03 / Report Structure</p>
             <h2>标准产出不是“模板填空”</h2>
           </div>
           <p class="callout">每一章都要回答一个决策问题，不能只写描述性文字。</p>
@@ -755,7 +830,7 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow">03 / Case Review</p>
+            <p class="eyebrow">04 / Case Review</p>
             <h2>案例复盘：PI 批量导出功能优化</h2>
           </div>
           <p>案例的价值不在“PI 这个功能”，而在它示范了如何从会议纪要走到代码证据，再走到一期方案。</p>
@@ -813,16 +888,16 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow">04 / Demo Links</p>
+            <p class="eyebrow">05 / Demo Links</p>
             <h2>现场操作入口</h2>
           </div>
           <p>培训时先讲方法论，再打开案例链接演示“同一套流程如何落地到真实需求”。</p>
         </div>
 
         <div class="resource-grid">
-          <a class="resource-link" href="https://linsy-ai-data.linshimuye.com/prod/upload/ai/html-share/15790_%E5%B8%AE%E6%88%91%E5%AE%8C%E6%88%90%E6%9C%AC%E6%AC%A1%E9%9C%80%E6%B1%82%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-a4d41163-1b9c-4ad0-ad35-77d285176524.html" target="_blank" rel="noopener">
-            <strong>林氏小龙虾操作案例</strong>
-            <span>打开线上页面，查看完整操作过程和生成结果。</span>
+          <a class="resource-link" href="https://linsy-ai-data.linshimuye.com/prod/upload/ai/html-share/15790_%E7%9B%AE%E6%A0%87%EF%BC%9A%E8%BE%93%E5%87%BA%E6%9C%AC%E9%9C%80%E6%B1%82%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%86%85%E5%AE%B9%EF%BC%8C%E5%8C%85%E6%8B%AC%EF%BC%9A%E9%9C%80%E6%B1%82%E8%83%8C%E6%99%AF%E3%80%81%E9%9C%80%E6%B1%82%E7%9B%AE%E6%A0%87%E3%80%81%E9%9C%80-2da5efce-670b-4277-beaa-3d07b5924386.html" target="_blank" rel="noopener">
+            <strong>林氏小龙虾 Skill 搭建案例</strong>
+            <span>查看从完成需求分析、要求打包，到补充特殊约束的完整对话。</span>
           </a>
           <a class="resource-link" href="2.输出/PI批量导出功能优化_需求分析_基于BPS代码.md" target="_blank" rel="noopener">
             <strong>案例分析报告</strong>
@@ -844,7 +919,7 @@
 
   <footer class="footer">
     <div class="wrap">
-      <p>AI辅助产品经理培训资料 - 需求分析流程。建议演示顺序：核心架构 → 产出模板 → 案例复盘 → 打开林氏小龙虾操作案例。</p>
+      <p>AI辅助产品经理培训资料 - 需求分析流程。建议演示顺序：搭建 SKILL → 核心架构 → 产出模板 → 案例复盘 → 打开林氏小龙虾搭建案例。</p>
     </div>
   </footer>
 
@@ -878,3 +953,4 @@
   </script>
 </body>
 </html>
+
